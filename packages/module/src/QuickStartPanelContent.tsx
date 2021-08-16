@@ -123,7 +123,11 @@ const QuickStartPanelContent: React.FC<QuickStartPanelContentProps> = ({
   ) : null;
 
   if (appendTo) {
-    return ReactDOM.createPortal(content, getElement(appendTo));
+    if (getElement(appendTo)) {
+      return ReactDOM.createPortal(content, getElement(appendTo));
+    }
+    // eslint-disable-next-line no-console
+    console.warn(`Could not attach quick start drawer to ${appendTo}`);
   }
   return content;
 };

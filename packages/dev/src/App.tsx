@@ -110,7 +110,7 @@ const App: React.FC<AppProps> = ({ children, showCardFooters }) => {
     <React.Suspense fallback={<LoadingBox />}>
       {allQuickStarts && allQuickStarts.length && (
         <QuickStartContextProvider value={valuesForQuickstartContext}>
-          <QuickStartDrawer>
+          <QuickStartDrawer appendTo={() => document.getElementById('non-existant')}>
             <Page header={AppHeader} sidebar={AppSidebar} isManagedSidebar>
               {children}
             </Page>
