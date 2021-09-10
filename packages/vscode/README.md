@@ -18,6 +18,15 @@ When you save the open .adoc or .yaml file, the quick start preview reloads to r
 
 [Placeholder]
 
+## Extension development
+Open up this `vscode` folder in a new window (so it's at the root)
+```
+yarn install
+yarn dev:compile
+```
+Press F5, which will launch the extension development host.
+It should automatically open a watch task, so code changes should be reflected.
+
 ## Release Notes
 
 ### 0.0.1

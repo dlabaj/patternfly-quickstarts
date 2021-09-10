@@ -1,0 +1,3 @@
+[submodule "packages/vscode/patternfly-builder"]
+	path = packages/vscode/patternfly-builder
+	url = https://github.com/patternfly/patternfly-builder

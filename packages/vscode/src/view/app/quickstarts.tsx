@@ -5,7 +5,7 @@ import "@patternfly/patternfly/utilities/Accessibility/accessibility.css";
 import "@patternfly/react-catalog-view-extension/dist/css/react-catalog-view-extension.css";
 import "@patternfly/quickstarts/dist/quickstarts.css";
 import {
-  ProcedureAsciiDocParser,
+  // ProcedureAsciiDocParser,
   QuickStartCatalogPage,
   QuickStartContext,
   QuickStartDrawer,
@@ -22,7 +22,7 @@ export const QuickStartsPreview = ({
   const decodedConfig = Base64.decode(config);
   const allQuickStarts = [];
   if (filePath.endsWith(".adoc")) {
-    allQuickStarts.push(ProcedureAsciiDocParser(decodedConfig));
+    // allQuickStarts.push(ProcedureAsciiDocParser(decodedConfig));
   } else {
     allQuickStarts.push(JSON.parse(decodedConfig));
   }
@@ -44,6 +44,7 @@ export const QuickStartsPreview = ({
   return (
     <QuickStartContext.Provider value={valuesForQuickstartContext}>
       <QuickStartDrawer>
+        COOL
         <QuickStartCatalogPage />
       </QuickStartDrawer>
     </QuickStartContext.Provider>
