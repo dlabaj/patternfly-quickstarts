@@ -8,6 +8,7 @@ import { URI } from 'vscode-uri';
 
 export default class ViewLoader {
   private readonly _panel: vscode.WebviewPanel | undefined;
+  // @ts-ignore
   private readonly _extensionPath: URI;
   private _disposables: vscode.Disposable[] = [];
 
