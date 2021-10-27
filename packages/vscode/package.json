@@ -34,7 +34,7 @@
   },
   "scripts": {
     "clean": "rm -rf out && rm -rf quickstartsPreview",
-    "vscode:prepublish": "npm run prod:compile",
+    "vscode:prepublish": "npm run build:web",
     "prod:compile": "npm run clean && npm-run-all prod:compile:*",
     "dev:compile": "npm run clean && npm-run-all dev:compile:*",
     "watch": "npm-run-all -p watch:*",
@@ -54,7 +54,7 @@
     "@types/node": "^10.12.21",
     "@types/react": "^16.14.4",
     "@types/react-dom": "^16.9.11",
-    "@types/vscode": "^1.61.0",
+    "@types/vscode": "^1.29.0",
     "@vscode/test-web": "^0.0.15",
     "assert": "^2.0.0",
     "babel-loader": "^8.2.3",
