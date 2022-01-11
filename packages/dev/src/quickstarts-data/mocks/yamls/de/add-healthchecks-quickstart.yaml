@@ -1,7 +1,7 @@
 apiVersion: console.openshift.io/v1
 kind: ConsoleQuickStart
 metadata:
-  name: de-add-healthchecks
+  name: add-healthchecks
   locale: de
 spec:
   type:
