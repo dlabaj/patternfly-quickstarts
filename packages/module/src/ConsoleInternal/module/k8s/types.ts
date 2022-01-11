@@ -42,4 +42,5 @@ export type ObjectMetadata = {
   ownerReferences?: OwnerReference[];
   resourceVersion?: string;
   uid?: string;
+  locale?: string;
 };

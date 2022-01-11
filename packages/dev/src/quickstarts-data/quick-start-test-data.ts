@@ -108,8 +108,5 @@ export const allQuickStarts: QuickStart[] = [
   // }),
   // ProcQuickStartParser(masGettingStarted),
   // ProcQuickStartParser(masKafkaBinScripts)
-];
-
-export const deQuickStarts: QuickStart[] = [
-  deHealthChecks
+  deHealthChecks,
 ];

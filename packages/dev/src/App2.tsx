@@ -11,7 +11,7 @@ import {
   QUICKSTART_ID_FILTER_KEY,
 } from '@patternfly/quickstarts';
 import { loadJSONQuickStarts } from './quickstarts-data/mas-guides/quickstartLoader';
-import { allQuickStarts as yamlQuickStarts, deQuickStarts } from './quickstarts-data/quick-start-test-data';
+import { allQuickStarts as yamlQuickStarts } from './quickstarts-data/quick-start-test-data';
 import React from 'react';
 import i18n from './i18n/i18n';
 import { AppHeader, AppSidebar } from './common/Page';
@@ -40,7 +40,9 @@ const App: React.FC<AppProps> = ({ children, showCardFooters }) => {
   React.useEffect(() => {
     const load = async () => {
       const masGuidesQuickstarts = await loadJSONQuickStarts('');
-      setQuickStarts(yamlQuickStarts.concat(masGuidesQuickstarts));
+      setQuickStarts(
+        yamlQuickStarts.concat(masGuidesQuickstarts).filter((qs) => !qs.metadata.locale),
+      );
       setLoading(false);
     };
     setTimeout(() => {
@@ -50,9 +52,14 @@ const App: React.FC<AppProps> = ({ children, showCardFooters }) => {
 
   const onLanguageChange = (lng: string) => {
     if (lng !== 'en') {
-      console.log(deQuickStarts);
-      const updatedQuickStarts = quickStarts.filter(qs => qs.metadata.name !== deQuickStarts[0].metadata.name).concat(deQuickStarts);
-      debugger;
+      const updatedQuickStarts = yamlQuickStarts.filter((qs) => qs.metadata.locale === lng);
+      setQuickStarts(updatedQuickStarts);
+    } else {
+      // en
+      // also include quick starts that do not have the locale set
+      const updatedQuickStarts = yamlQuickStarts.filter(
+        (qs) => qs.metadata.locale === lng || !qs.metadata.locale,
+      );
       setQuickStarts(updatedQuickStarts);
     }
   };
@@ -92,6 +99,7 @@ const App: React.FC<AppProps> = ({ children, showCardFooters }) => {
       <QuickStartContainer {...drawerProps}>
         <Page header={AppHeader} sidebar={AppSidebar} isManagedSidebar>
           <button onClick={() => onLanguageChange('de')}>de</button>
+          <button onClick={() => onLanguageChange('en')}>en</button>
           <Button onClick={() => toggleQuickStart('copy-execute-snippets')}>
             Toggle quick start through prop
           </Button>

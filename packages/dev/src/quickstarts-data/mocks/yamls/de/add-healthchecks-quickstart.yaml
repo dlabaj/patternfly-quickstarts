@@ -2,10 +2,7 @@ apiVersion: console.openshift.io/v1
 kind: ConsoleQuickStart
 metadata:
   name: de-add-healthchecks
-  annotations:
-    include.release.openshift.io/ibm-cloud-managed: "true"
-    include.release.openshift.io/self-managed-high-availability: "true"
-    include.release.openshift.io/single-node-developer: "true"
+  locale: de
 spec:
   type:
     text: Quick start
@@ -18,7 +15,7 @@ spec:
     to it.
   prerequisites: [You completed the "Getting started with a sample" quick start.]
   introduction: |-
-    ### This quick start shows you how to add health checks to your sample application.
+    ### DE This quick start shows you how to add health checks to your sample application.
     You should have previously created the **sample-app** application and **nodejs-sample** deployment using the **Get started with a sample** quick start. If you haven't, you may be able to follow these tasks with any existing deployment without configured health checks.
   tasks:
     - title: View the details of your sample application
